@@ -7,6 +7,8 @@ import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Chaininfo from './pages/chain-info.jsx'
 import ErrorPage from './pages/errorpage.jsx'
 import FakeBayc from './pages/fakeBayc.jsx'
+import FakeBaycTokenUri from './pages/fakeBaycTokenUri.jsx'
+
 
 function App() {
   const [connectionStatus, setConnectionStatus] = useState('Disconnected');
@@ -33,12 +35,13 @@ function App() {
             <button onClick={connect}>{connectionStatus}</button>
           </div>
           <div>
-            <Link to="/chain-info">Next Page</Link>
+            <Link to="/chain-info">Chain info</Link>
           </div>
         </>} />
         <Route exact path="/chain-info" element={<Chaininfo />} />
         <Route path="/error" element={<ErrorPage />} />
         <Route path="/fakeBayc" element={<FakeBayc />} />
+        <Route path="/fakeBayc/:tokenId" element={<FakeBaycTokenUri />} />
       </Routes>
     </Router>
   )

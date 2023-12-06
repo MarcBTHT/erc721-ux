@@ -56,6 +56,7 @@ function Chaininfo() {
             setConnectionStatus('Please install MetaMask');
         }
     }
+    
 
     return (
         <>
@@ -69,9 +70,8 @@ function Chaininfo() {
                     <p>User Address: {userAddress}</p>
                 </div>
             )}
-
             <div>
-                <Link to="/">Go back home</Link>
+                <Link to="/fakeBayc">fakeBayc</Link>
             </div>
         </>
     )
