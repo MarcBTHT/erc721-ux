@@ -61,7 +61,6 @@ function FakeBayc() {
         }
     }
 
-    // New function to handle redirection
     const goToTokenPage = () => {
         if (tokenId) {
             navigate(`/fakeBayc/${tokenId}`);

@@ -9,32 +9,15 @@ import ErrorPage from './pages/errorpage.jsx'
 import FakeBayc from './pages/fakeBayc.jsx'
 import FakeBaycTokenUri from './pages/fakeBaycTokenUri.jsx'
 import FakeNefturians from './pages/fakeNefturians.jsx'
+import FakeNefturiansUser from './pages/fakeNefturiansUser.jsx'
 
 
 function App() {
-  const [connectionStatus, setConnectionStatus] = useState('Disconnected');
-  async function connect() {
-    if (typeof window.ethereum !== "undefined") {
-      try {
-        await ethereum.request({ method: "eth_requestAccounts" })
-        setConnectionStatus('Connected'); // Update button text
-        const accounts = await ethereum.request({ method: "eth_accounts" })
-        console.log(accounts)
-      } catch (error) {
-        console.log(error)
-      }
-    } else {
-      setConnectionStatus('Please install MetaMask'); // Update button text
-    }
-  }
 
   return (
     <Router>
       <Routes>
         <Route exact path="/" element={<>
-          <div>
-            <button onClick={connect}>{connectionStatus}</button>
-          </div>
           <div>
             <Link to="/chain-info">Chain info</Link>
           </div>
@@ -44,6 +27,7 @@ function App() {
         <Route path="/fakeBayc" element={<FakeBayc />} />
         <Route path="/fakeBayc/:tokenId" element={<FakeBaycTokenUri />} />
         <Route path="/fakeNefturians" element={<FakeNefturians />} />
+        <Route path="/fakeNefturians/:userAddress" element={<FakeNefturiansUser />} />
       </Routes>
     </Router>
   )

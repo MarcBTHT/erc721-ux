@@ -9,6 +9,9 @@ function FakeNefturians() {
     const [connectionStatus, setConnectionStatus] = useState('Disconnected');
     const [tokenPrice, setTokenPrice] = useState(null);
     const [ethAmount, setEthAmount] = useState('');
+    const [userAddress, setUserAddress] = useState('');
+
+    const navigate = useNavigate(); 
 
     async function connect() {
         if (typeof window.ethereum !== "undefined") {
@@ -16,6 +19,7 @@ function FakeNefturians() {
                 await ethereum.request({ method: "eth_requestAccounts" })
                 setConnectionStatus('Connected'); // Update button text
                 const accounts = await ethereum.request({ method: "eth_accounts" })
+                setUserAddress(accounts[0]); 
                 console.log(accounts)
             } catch (error) {
                 console.log(error)
@@ -56,6 +60,11 @@ function FakeNefturians() {
             }
         }
     };
+    const goToUserPage = () => {
+        if (userAddress) {
+            navigate(`/fakeNefturians/${userAddress}`);
+        }
+    }
 
     return (
         <>
@@ -67,9 +76,9 @@ function FakeNefturians() {
                 <input type="text" placeholder="Amount in ETH" value={ethAmount} onChange={(e) => setEthAmount(e.target.value)} />
                 <button onClick={() => buyToken(ethAmount)}>Buy Token</button>
             </div>
-
+            <button onClick={goToUserPage}>Go to User Details</button>
             <div>
-                <Link to="/">Go back home</Link>
+                <Link to="/">Go to fakeMeebits</Link>
             </div>
         </>
     )
