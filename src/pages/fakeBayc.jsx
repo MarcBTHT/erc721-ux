@@ -92,7 +92,7 @@ function FakeBayc() {
             </div>
 
             <div>
-                <Link to="/">Go back home</Link>
+                <Link to="/fakeNefturians">fakeNefturians</Link>
             </div>
         </>
     )

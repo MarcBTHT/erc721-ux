@@ -8,6 +8,7 @@ import Chaininfo from './pages/chain-info.jsx'
 import ErrorPage from './pages/errorpage.jsx'
 import FakeBayc from './pages/fakeBayc.jsx'
 import FakeBaycTokenUri from './pages/fakeBaycTokenUri.jsx'
+import FakeNefturians from './pages/fakeNefturians.jsx'
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/error" element={<ErrorPage />} />
         <Route path="/fakeBayc" element={<FakeBayc />} />
         <Route path="/fakeBayc/:tokenId" element={<FakeBaycTokenUri />} />
+        <Route path="/fakeNefturians" element={<FakeNefturians />} />
       </Routes>
     </Router>
   )
