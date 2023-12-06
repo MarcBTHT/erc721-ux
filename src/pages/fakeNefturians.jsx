@@ -78,7 +78,7 @@ function FakeNefturians() {
             </div>
             <button onClick={goToUserPage}>Go to User Details</button>
             <div>
-                <Link to="/">Go to fakeMeebits</Link>
+                <Link to="/fakeMeebits">fakeMeebits</Link>
             </div>
         </>
     )

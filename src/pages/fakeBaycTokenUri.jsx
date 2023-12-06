@@ -10,6 +10,10 @@ function FakeBaycTokenUri() {
     const [metadata, setMetadata] = useState(null);
     const [error, setError] = useState(null);
 
+    const convertIpfsUrl = (url) => {
+        return url.replace(/^ipfs:\/\//, "https://ipfs.io/ipfs/");
+    };
+
     useEffect(() => {
         const fetchMetadata = async () => {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -35,7 +39,7 @@ function FakeBaycTokenUri() {
                 <p>Error: {error}</p> // Display error message
             ) : metadata ? (
                 <>
-                    <img src={metadata.image} alt={`Token ${tokenId}`} />
+                    <img src={convertIpfsUrl(metadata.image)} alt={`Token ${tokenId}`} />
                     <p>Attributes :</p>
                     <ul>
                         {metadata.attributes.map((attribute, index) => (

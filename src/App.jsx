@@ -10,6 +10,7 @@ import FakeBayc from './pages/fakeBayc.jsx'
 import FakeBaycTokenUri from './pages/fakeBaycTokenUri.jsx'
 import FakeNefturians from './pages/fakeNefturians.jsx'
 import FakeNefturiansUser from './pages/fakeNefturiansUser.jsx'
+import FakeMeebits from './pages/fakeMeebits.jsx'
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/fakeBayc/:tokenId" element={<FakeBaycTokenUri />} />
         <Route path="/fakeNefturians" element={<FakeNefturians />} />
         <Route path="/fakeNefturians/:userAddress" element={<FakeNefturiansUser />} />
+        <Route path="/fakeMeebits" element={<FakeMeebits />} />
       </Routes>
     </Router>
   )
